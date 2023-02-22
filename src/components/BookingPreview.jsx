@@ -1,4 +1,5 @@
-export default function BookingPreview() {
+export default function BookingPreview({ booking }) {
+  const { destinationFrom, destinationTo, guests, flightClass, actualJourneyDate } = booking;
   return (
     <div className="table-container">
       <table className="booking-table">

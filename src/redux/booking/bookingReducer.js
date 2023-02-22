@@ -11,9 +11,9 @@ const bookingReducer = (state = initialState, action) => {
           id: state.length + 1,
           destinationFrom: action.payload.destinationFrom,
           destinationTo: action.payload.destinationTo,
-          journeyDate: action.payload.journeyDate,
           guests: action.payload.guests,
           flightClass: action.payload.flightClass,
+          actualJourneyDate: action.payload.actualJourneyDate,
         }
       ];
     case DELETE:

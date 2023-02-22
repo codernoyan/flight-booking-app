@@ -23,7 +23,8 @@ export default function BookingInput() {
     const actualJourneyDate = `${day}-${month}-${journeyDate.getFullYear()}`;
 
     // dispatch action
-    dispatch(bookFlight(destinationFrom, destinationTo, guests, flightClass, actualJourneyDate))
+    dispatch(bookFlight(destinationFrom, destinationTo, actualJourneyDate, guests, flightClass));
+    // console.log(destinationFrom, destinationTo, actualJourneyDate, guests, flightClass);
 
   }
   console.log(bookingData);
