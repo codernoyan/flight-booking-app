@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import bookingReducer from './booking/bookingReducer';
-import { limitBooking } from './middlewares/limitBooking';
 
-const store = createStore(bookingReducer, applyMiddleware(limitBooking));
+const store = createStore(bookingReducer);
 
 export default store;
