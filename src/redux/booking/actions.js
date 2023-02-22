@@ -1,14 +1,14 @@
 import { BOOK, DELETE } from "./actionTypes"
 
-export const book = (destinationFrom, destinationTo, journeyDate, guests, flightClass) => {
+export const bookFlight = (destinationFrom, destinationTo, journeyDate, guests, flightClass) => {
   return {
     type: BOOK,
     payload: {
       destinationFrom,
       destinationTo,
-      journeyDate,
       guests,
-      flightClass
+      flightClass,
+      journeyDate,
     }
   }
 };

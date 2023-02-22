@@ -1,12 +1,38 @@
+import { useDispatch, useSelector } from "react-redux";
+import { bookFlight } from "../redux/booking/actions";
 import BookingPreview from "./BookingPreview";
 
 export default function BookingInput() {
+  const bookingData = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  // booking form
+  const handleBook = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const destinationFrom = form.from.value;
+    const destinationTo = form.to.value;
+    const journeyDate = new Date(form.date.value);
+    const guests = form.guests.value;
+    const flightClass = form.ticketClass.value;
+
+    // date modification
+    const day = journeyDate.getDate() < 10 ? '0' + journeyDate.getDate() : journeyDate.getDate();
+    const month = (journeyDate.getMonth() + 1) < 10 ? '0' + (journeyDate.getMonth() + 1) : journeyDate.getMonth() + 1;
+    const actualJourneyDate = `${day}-${month}-${journeyDate.getFullYear()}`;
+
+    // dispatch action
+    dispatch(bookFlight(destinationFrom, destinationTo, guests, flightClass, actualJourneyDate))
+
+  }
+  console.log(bookingData);
   return (
     <section>
       {/* Input Data */}
       <div className="mt-[160px] mx-4 md:mt-[160px] relative">
         <div className="bg-white rounded-md max-w-6xl w-full mx-auto">
-          <form className="first-hero lws-inputform">
+          <form onSubmit={handleBook} className="first-hero lws-inputform">
             {/* From */}
             <div className="des-from">
               <p>Destination From</p>
@@ -81,7 +107,9 @@ export default function BookingInput() {
         </div>
       </div>
       {/* Preview Data */}
-      <BookingPreview />
+      {
+        bookingData && bookingData.map((booking) => <BookingPreview key={booking.id} booking={booking} />)
+      }
     </section>
   )
 }

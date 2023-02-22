@@ -1,8 +1,6 @@
-import { BOOK } from "./actionTypes";
+import { BOOK, DELETE } from "./actionTypes";
 
-const initialState = [
-
-];
+const initialState = [];
 
 const bookingReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,7 +8,7 @@ const bookingReducer = (state = initialState, action) => {
       return [
         ...state,
         {
-          id: state.length,
+          id: state.length + 1,
           destinationFrom: action.payload.destinationFrom,
           destinationTo: action.payload.destinationTo,
           journeyDate: action.payload.journeyDate,
