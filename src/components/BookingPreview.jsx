@@ -1,5 +1,10 @@
+import { useDispatch } from "react-redux";
+import { deleteBooking } from "../redux/booking/actions";
+
 export default function BookingPreview({ booking }) {
-  const { destinationFrom, destinationTo, guests, flightClass, actualJourneyDate } = booking;
+  const dispatch = useDispatch();
+  const { id, destinationFrom, destinationTo, actualJourneyDate, guests, flightClass } = booking;
+
   return (
     <div className="table-container">
       <table className="booking-table">
@@ -18,24 +23,24 @@ export default function BookingPreview({ booking }) {
           <tr className="lws-bookedTable text-black">
             <td className="px-6 py-4">
               <div className="flex items-center space-x-3">
-                <p className="lws-bookedFrom">Dhaka</p>
+                <p className="lws-bookedFrom">{destinationFrom}</p>
               </div>
             </td>
             <td className="px-6 py-4">
-              <p className="lws-bookedTo">Sylhet</p>
+              <p className="lws-bookedTo">{destinationTo}</p>
             </td>
             <td className="px-6 py-4 text-center">
-              <p className="lws-bookedDate">11-01-23</p>
+              <p className="lws-bookedDate">{actualJourneyDate}</p>
             </td>
             <td className="px-6 py-4 text-center">
-              <p className="lws-bookedGustes">2</p>
+              <p className="lws-bookedGustes">{guests}</p>
             </td>
             <td className="px-6 py-4 text-center">
-              <span className="lws-bookedClass"> Business </span>
+              <span className="lws-bookedClass"> {flightClass} </span>
             </td>
             <td className="px-6 py-4 text-center">
               <div className="flex justify-center gap-4">
-                <button className="lws-remove">
+                <button onClick={() => dispatch(deleteBooking(id))} className="lws-remove">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round"

@@ -18,11 +18,7 @@ const bookingReducer = (state = initialState, action) => {
       ];
     case DELETE:
       const bookings = [...state];
-      bookings.map((booking) => {
-        if (booking.id === action.payload.id) {
-          return bookings.filter(booking.id !== action.payload.id);
-        }
-      })
+      return bookings.filter((booking) => booking.id !== action.payload.id)
     default:
       return state;
   }

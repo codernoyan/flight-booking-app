@@ -13,8 +13,11 @@ export const bookFlight = (destinationFrom, destinationTo, actualJourneyDate, gu
   }
 };
 
-export const deleteBooking = () => {
+export const deleteBooking = (id) => {
   return {
     type: DELETE,
+    payload: {
+      id: id
+    }
   }
 };
