@@ -27,7 +27,7 @@ export default function BookingInput() {
     // console.log(destinationFrom, destinationTo, actualJourneyDate, guests, flightClass);
 
   }
-  // console.log(bookingData);
+  console.log(bookingData);
   return (
     <section>
       {/* Input Data */}
@@ -108,8 +108,30 @@ export default function BookingInput() {
         </div>
       </div>
       {/* Preview Data */}
+      {/* data table */}
       {
-        bookingData && bookingData?.map((booking) => <BookingPreview key={booking.id} booking={booking} />)
+        bookingData.length !== 0 && (
+          <div className="table-container">
+            <table className="booking-table">
+              <thead className="bg-gray-100/50">
+                <tr className="text-black text-left">
+                  <th>Destination From</th>
+                  <th>Destination To</th>
+                  <th className="text-center">Journey Date</th>
+                  <th className="text-center">Guests</th>
+                  <th className="text-center">Class</th>
+                  <th className="text-center">Delete</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
+                {/* Rows */}
+                {
+                  bookingData?.map((booking) => <BookingPreview key={booking.id} booking={booking} />)
+                }
+              </tbody>
+            </table>
+          </div>
+        )
       }
     </section>
   )
