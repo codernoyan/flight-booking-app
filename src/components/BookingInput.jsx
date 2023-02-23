@@ -84,7 +84,6 @@ export default function BookingInput() {
                 </select>
               </div>
             </div>
-
             {/* Class */}
             <div className="des-from !border-r-0">
               <p>Class</p>
