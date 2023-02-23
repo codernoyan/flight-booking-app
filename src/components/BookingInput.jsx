@@ -27,7 +27,7 @@ export default function BookingInput() {
     // console.log(destinationFrom, destinationTo, actualJourneyDate, guests, flightClass);
 
   }
-  console.log(bookingData);
+  // console.log(bookingData);
   return (
     <section>
       {/* Input Data */}
@@ -109,7 +109,7 @@ export default function BookingInput() {
       </div>
       {/* Preview Data */}
       {
-        bookingData && bookingData.map((booking) => <BookingPreview key={booking.id} booking={booking} />)
+        bookingData && bookingData?.map((booking) => <BookingPreview key={booking.id} booking={booking} />)
       }
     </section>
   )
