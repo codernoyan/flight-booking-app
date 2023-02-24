@@ -5,11 +5,7 @@ function makeRandomId(range) {
   const characterSmall = 'abcdefghijklmnopqrstuvwxyz';
   const characterNumberString = '0123456789';
   
-  /* show id with capital letter, small letter and number (high secured) */
   const allCharacters = characterCapital + characterSmall + characterNumberString;
-  
-  /* show id only capital letter with number (less high secured) */
-  // const allCharacters = characterCapital + characterNumberString;
 
   const charactersLength = allCharacters.length;
   let id = '';
