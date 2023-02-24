@@ -28,7 +28,7 @@ const bookingReducer = (state = initialState, action) => {
       return [
         ...state,
         {
-          id: makeRandomId(8),
+          id: makeRandomId(16),
           destinationFrom: action.payload.destinationFrom,
           destinationTo: action.payload.destinationTo,
           guests: action.payload.guests,
