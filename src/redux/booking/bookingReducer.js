@@ -1,5 +1,25 @@
 import { BOOK, DELETE } from "./actionTypes";
 
+function makeRandomId(range) {
+  const characterCapital = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const characterSmall = 'abcdefghijklmnopqrstuvwxyz';
+  const characterNumberString = '0123456789';
+  
+  /* show id with capital letter, small letter and number (high secured) */
+  const allCharacters = characterCapital + characterSmall + characterNumberString;
+  
+  /* show id only capital letter with number (less high secured) */
+  // const allCharacters = characterCapital + characterNumberString;
+
+  const charactersLength = allCharacters.length;
+  let id = '';
+
+  for (let i = 0; i < range; i++){
+      id += allCharacters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return id;
+}
+
 const initialState = [];
 
 const bookingReducer = (state = initialState, action) => {
@@ -8,7 +28,7 @@ const bookingReducer = (state = initialState, action) => {
       return [
         ...state,
         {
-          id: state.length + 1,
+          id: makeRandomId(8),
           destinationFrom: action.payload.destinationFrom,
           destinationTo: action.payload.destinationTo,
           guests: action.payload.guests,

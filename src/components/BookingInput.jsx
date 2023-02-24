@@ -135,3 +135,13 @@ export default function BookingInput() {
     </section>
   )
 }
+
+
+// function curriedFunction(a) {
+//   return function (b) {
+//     return function (c) {
+//       return a + b + c;
+//     }
+//   }
+// }
+// curriedFunction(1)(2)(5);
